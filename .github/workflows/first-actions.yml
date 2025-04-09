@@ -40,12 +40,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Deploy to VM
+      - name: Deploy to VM using password
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VM_HOST }}
           username: ${{ secrets.VM_USER }}
-          key: ${{ secrets.VM_PASSWORD }}
+          password: ${{ secrets.VM_PASSWORD }}  # Ensure 'password' is used
           port: ${{ secrets.VM_PORT }}
           script: |
             cd /var/www/html/
