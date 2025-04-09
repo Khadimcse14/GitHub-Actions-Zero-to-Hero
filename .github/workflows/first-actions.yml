@@ -51,3 +51,4 @@ jobs:
             cd /path/to/your/project
             git pull origin main
             ls
+          debug: true
