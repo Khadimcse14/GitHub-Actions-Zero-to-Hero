@@ -48,7 +48,7 @@ jobs:
           key: ${{ secrets.VM_SSH_KEY }}
           port: ${{ secrets.VM_PORT }}
           script: |
-            cd /path/to/your/project
+            cd /var/www/html/
             git pull origin main
             ls
           debug: true
