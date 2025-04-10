@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # trigger only on main branch push test
+      - main  # trigger only on main branch push
 
 jobs:
   build-and-test:
@@ -40,12 +40,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Deploy to VM using password
+      - name: Deploy to VM using SSH key
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VM_HOST }}
           username: ${{ secrets.VM_USER }}
-          password: ${{ secrets.VM_SSH_KEY }}  # Ensure 'password' is used
+          key: ${{ secrets.VM_SSH_KEY }}  # Use 'key' instead of 'password'
           port: ${{ secrets.VM_PORT }}
           script: |
             cd /var/www/html/
