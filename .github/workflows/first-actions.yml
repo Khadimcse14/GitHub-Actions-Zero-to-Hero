@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64]
 
     strategy:
       matrix:
@@ -36,7 +36,7 @@ jobs:
 
   deploy:
     needs: build-and-test
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64]
 
     if: github.event_name == 'workflow_dispatch'  # Only run on manual trigger
 
